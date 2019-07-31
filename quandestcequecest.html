@@ -49,7 +49,7 @@
                     day: "numeric"
                 };
 
-                document.getElementById("reponse-paragraphe").innerHTML = resultat.toLocaleDateString('fr-FR', options);
+                document.getElementById("reponse-paragraphe").innerHTML = "Il s'agit du "resultat.toLocaleDateString('fr-FR', options) + " évidemment ! 😌";
 
             }
         </script>
@@ -58,7 +58,7 @@
 
 <body>
     <div class="plein-millieu">
-        <p><b>Quand est-ce que c'est 
+        <p><b>Quand est-ce que c'est « 
     	<select id="jour-selecteur" onchange="calculQuandEstCeQueCEst()">
     	    <option hidden disabled selected value>  </option>
     		<option value="1">lundi</option>
@@ -69,7 +69,7 @@
     		<option value="6">samedi</option>
     		<option value="0">dimanche</option>
 		</select>
-     prochain ?</b></p>
+     prochain » ?</b></p>
         <p id="reponse-paragraphe" />
     </div>
 </body>
