@@ -26,8 +26,7 @@
                 var dimancheProchain = new Date(
                     maintenant.getFullYear(),
                     maintenant.getMonth(),
-                    maintenant.getDate() + (7 - maintenant.getDay()) % 7,
-                    1);
+                    maintenant.getDate() + (7 - maintenant.getDay()) % 7);
                 console.log(dimancheProchain);
                 console.log(jourSelectionne);
 
@@ -35,11 +34,7 @@
                 var resultat = new Date(
                     dimancheProchain.getFullYear(),
                     dimancheProchain.getMonth(),
-                    dimancheProchain.getDate() + (7 + jourSelectionne - dimancheProchain.getDay()) % 7);
-
-                if (resultat < dimancheProchain) {
-                    resultat.setDate(resultat.getDate() + 7)
-                }
+                    dimancheProchain.getDate() + jourSelectionne;
 
                 // Affichage formaté du resultat
                 var options = {
@@ -67,7 +62,7 @@
     		<option value="4">jeudi</option>
     		<option value="5">vendredi</option>
     		<option value="6">samedi</option>
-    		<option value="0">dimanche</option>
+    		<option value="7">dimanche</option>
 		</select>
      prochain » ?</b></p>
         <p id="reponse-paragraphe" />
