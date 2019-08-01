@@ -3,51 +3,48 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
 
     <title>Quand est-ce que c'est ?</title>
 
-    <head>
-        <style>
-            .plein-millieu {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        </style>
-        <script>
-            function calculQuandEstCeQueCEst() {
-                var maintenant = new Date();
-                // Récuperation du jour selectionné
-                var jourSelecteur = document.getElementById("jour-selecteur");
-                var jourSelectionne = jourSelecteur.options[jourSelecteur.selectedIndex].value;
-                // Calcul de la date prochain dimanche
-                var dimancheProchain = new Date(
-                    maintenant.getFullYear(),
-                    maintenant.getMonth(),
-                    maintenant.getDate() + (7 - maintenant.getDay()) % 7);
-                console.log(dimancheProchain);
-                console.log(jourSelectionne);
-                // Calcul du resultat en partant du prochain dimanche
-                var resultat = new Date(
-                    dimancheProchain.getFullYear(),
-                    dimancheProchain.getMonth(),
-                    dimancheProchain.getDate() + jourSelectionne);
-                    
-                    console.log(resultat);
-                // Affichage formaté du resultat
-                var options = {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric"
-                };
-                document.getElementById("reponse-paragraphe").innerHTML = "Il s'agit du " + resultat.toLocaleDateString('fr-FR', options) + " évidemment ! 😌";
-            }
-        </script>
-    </head>
+    <style>
+        .plein-millieu {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script>
+        function calculQuandEstCeQueCEst() {
+            var maintenant = new Date();
+            // Récuperation du jour selectionné
+            var jourSelecteur = document.getElementById("jour-selecteur");
+            var jourSelectionne = jourSelecteur.options[jourSelecteur.selectedIndex].value;
+            // Calcul de la date prochain dimanche
+            var dimancheProchain = new Date(
+                maintenant.getFullYear(),
+                maintenant.getMonth(),
+                maintenant.getDate() + (7 - maintenant.getDay()) % 7);
+
+            // Calcul du resultat en partant du prochain dimanche
+            var resultat = new Date(
+                dimancheProchain.getFullYear(),
+                dimancheProchain.getMonth(),
+                dimancheProchain.getDate() + jourSelectionne);
+                
+            // Affichage formaté du resultat
+            var options = {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+            };
+            document.getElementById("reponse-paragraphe").innerHTML = "Il s'agit du " + resultat.toLocaleDateString('fr-FR', options) + " évidemment ! 😌";
+        }
+    </script>
 </head>
+
 
 <body>
     <div class="plein-millieu">
