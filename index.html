@@ -17,21 +17,29 @@
     </style>
     <script>
         function calculQuandEstCeQueCEst() {
-            var maintenant = new Date();
+            var maintenant = new Date
+            
+            console.log(maintenant);
+            
             // Récuperation du jour selectionné
             var jourSelecteur = document.getElementById("jour-selecteur");
-            var jourSelectionne = jourSelecteur.options[jourSelecteur.selectedIndex].value;
+            var jourSelectionne = Number(jourSelecteur.options[jourSelecteur.selectedIndex].value);
+            
+            console.log(jourSelectionne);
+            
             // Calcul de la date prochain dimanche
             var dimancheProchain = new Date(
                 maintenant.getFullYear(),
                 maintenant.getMonth(),
                 maintenant.getDate() + (7 - maintenant.getDay()) % 7);
+            
+            console.log(dimancheProchain);
 
             // Calcul du resultat en partant du prochain dimanche
-            var resultat = new Date(
-                dimancheProchain.getFullYear(),
-                dimancheProchain.getMonth(),
-                dimancheProchain.getDate() + jourSelectionne);
+            var resultat = new Date(dimancheProchain);
+            resultat.setDate(resultat.getDate() + jourSelectionne);
+            
+            
                 
             // Affichage formaté du resultat
             var options = {
@@ -51,13 +59,13 @@
         <p><b>Quand est-ce que c'est «&nbsp;
     	<select id="jour-selecteur" onchange="calculQuandEstCeQueCEst()">
     	    <option hidden disabled selected value>  </option>
-    		<option value="0">lundi</option>
-    		<option value="1">mardi</option>
-    		<option value="2">mercredi</option>
-    		<option value="3">jeudi</option>
-    		<option value="4">vendredi</option>
-    		<option value="5">samedi</option>
-    		<option value="6">dimanche</option>
+    		<option value="1">lundi</option>
+    		<option value="2">mardi</option>
+    		<option value="3">mercredi</option>
+    		<option value="4">jeudi</option>
+    		<option value="5">vendredi</option>
+    		<option value="6">samedi</option>
+    		<option value="7">dimanche</option>
 		</select>
      prochain&nbsp;» ?</b></p>
         <p id="reponse-paragraphe" />
