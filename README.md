@@ -17,13 +17,13 @@ Nous avons la réponse ⇒ **http://quandestcequecest.fr**
 
 ## Réference
 
-Le moteur de calcul du *quandestestcequecest* utilise la définition de prochain proposée par wiktionnaire.org.
+Le moteur de calcul du *quandestcequecest* utilise la définition de prochain proposée par wiktionnaire.org.
 
 > **prochain**
 >
 > (Populaire) Détermine un jour de la semaine suivante.
 >
-> *Nadia va à la plage le lundi 21 juillet. Elle a oublié son parasol. La plage ouvre seulement mardi prochain donc le 29 (pas le 22).*
+> *Arthur va à la plage le lundi 21 juillet. Il a oublié son parasol. La plage ouvre seulement mardi prochain donc le 29 (pas le 22).*
 
 *source : https://fr.wiktionary.org/wiki/prochain*
 
