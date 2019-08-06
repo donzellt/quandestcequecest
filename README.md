@@ -3,7 +3,7 @@ Quand est-ce que c'est ?
 
 ## Présentation
 
-Il est difficile pour vous de repondre a l'une de ces questions :
+Il est difficile pour vous de repondre à l'une de ces questions :
 
 * *Quand est-ce que c'est « **lundi prochain** » ?*
 * *Quand est-ce que c'est « **mardi prochain** » ?*
