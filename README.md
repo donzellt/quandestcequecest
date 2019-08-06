@@ -29,5 +29,5 @@ Le moteur de calcul du *quandestestcequecest* utilise la définition de prochain
 
 ## Technologies
 
-Le *quandestestcequecest* est une application mono-fichier propulsée par le framework [Vanilla JS|http://vanilla-js.com/]
+Le *quandestestcequecest* est une application mono-fichier propulsée par le framework [Vanilla JS](http://vanilla-js.com/)
 
