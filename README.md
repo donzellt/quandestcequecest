@@ -27,6 +27,27 @@ Le moteur de calcul du *quandestcequecest* utilise la définition de prochain pr
 
 *source : https://fr.wiktionary.org/wiki/prochain*
 
+## Algorithme du moteur de calcul
+
+  
+
+        Un jour de la semaine
+        
+                  |
+                  |
+                  v
+    +--------------------------+
+    |                          |
+    | Quand est ce-que c'est ? |
+    |                          |
+    +--------------------------+
+                  |
+                  |
+                  v
+                  
+              Une date
+          
+
 ## Technologies
 
 Le *quandestestcequecest* est une application mono-fichier responsive propulsée par le framework [Vanilla JS](http://vanilla-js.com/)
