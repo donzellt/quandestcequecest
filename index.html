@@ -21,45 +21,67 @@
         .presque-plein-millieu {
             position: absolute;
             top: 30%;
-            left: 50%;
-            transform: translate(-50%);
+            width: 100%;
             text-align: center;
+        }
+        .lien-source {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .lien-source a {
+            color: lightgrey;
         }
     </style>
     <script>
-        function calculQuandEstCeQueCEst() {
+
+        function controleur(){
+            // Récuperation du jour selectionné par l'utilisateur
+            var jourSelecteur = document.getElementById("jour-selecteur");
+            var indexJourSelectionne = Number(jourSelecteur.options[jourSelecteur.selectedIndex].value);
+
+            console.debug(`Index du jour selectionne : ${indexJourSelectionne}`);
+
+            // Appel au quandestcequecest
+            var resultat = calculQuandEstCeQueCEst(indexJourSelectionne);
+
+            // Affichage formaté du resultat
+            document.getElementById("reponse-paragraphe").innerHTML = contruirePhraseReponse(resultat);
+
+        }
+
+        function calculQuandEstCeQueCEst(indexJour) {
             var maintenant = new Date
             
-            console.log(maintenant);
+            console.debug(`Date du jour : ${maintenant}`);
             
-            // Récuperation du jour selectionné
-            var jourSelecteur = document.getElementById("jour-selecteur");
-            var jourSelectionne = Number(jourSelecteur.options[jourSelecteur.selectedIndex].value);
-            
-            console.log(jourSelectionne);
-            
-            // Calcul de la date prochain dimanche
-            var dimancheProchain = new Date(
+            // Calcul de la date du prochain dimanche
+            var prochainDimanche = new Date(
                 maintenant.getFullYear(),
                 maintenant.getMonth(),
                 maintenant.getDate() + (7 - maintenant.getDay()) % 7);
             
-            console.log(dimancheProchain);
+            console.debug(`Date du prochain dimanche : ${prochainDimanche}`);
 
             // Calcul du resultat en partant du prochain dimanche
-            var resultat = new Date(dimancheProchain);
-            resultat.setDate(resultat.getDate() + jourSelectionne);
-            
-            
-                
-            // Affichage formaté du resultat
+            var resultat = new Date(prochainDimanche);
+            resultat.setDate(resultat.getDate() + indexJour);
+
+            return resultat;
+        }
+
+        function contruirePhraseReponse(date) {
+            // Affichage formaté de la date
             var options = {
                 weekday: "long",
                 year: "numeric",
                 month: "long",
                 day: "numeric"
             };
-            document.getElementById("reponse-paragraphe").innerHTML = "Il s'agit du " + resultat.toLocaleDateString('fr-FR', options) + " sans aucun doute possible ! 😌";
+
+            return "Il s'agit du " + date.toLocaleDateString('fr-FR', options) + " sans aucun doute possible ! 😌";
+
         }
     </script>
 </head>
@@ -68,19 +90,21 @@
 <body>
     <div class="presque-plein-millieu">
         <p><b>Quand est-ce que c'est «&nbsp;
-    	<select id="jour-selecteur" onchange="calculQuandEstCeQueCEst()">
-    	    <option hidden disabled selected value>  </option>
-    		<option value="1">lundi</option>
-    		<option value="2">mardi</option>
-    		<option value="3">mercredi</option>
-    		<option value="4">jeudi</option>
-    		<option value="5">vendredi</option>
-    		<option value="6">samedi</option>
-    		<option value="7">dimanche</option>
-		</select>
-     prochain&nbsp;» ?</b></p>
+            <select id="jour-selecteur" onchange="controleur()">
+                <option hidden disabled selected value/>
+                <option value="1">lundi</option>
+                <option value="2">mardi</option>
+                <option value="3">mercredi</option>
+                <option value="4">jeudi</option>
+                <option value="5">vendredi</option>
+                <option value="6">samedi</option>
+                <option value="7">dimanche</option>
+            </select>
+            &nbsp;prochain&nbsp;» ?</b></p>
         <p id="reponse-paragraphe" />
     </div>
+    <p class="lien-source" >
+        <a href="https://github.com/donzellt/quandestcequecest">sources</a>
+    </p>
 </body>
-
 </html>
