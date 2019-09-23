@@ -36,8 +36,8 @@
     </style>
     <script>
 
-        function controleur(){
-            // Récuperation du jour selectionné par l'utilisateur
+        function onJourChange(){
+            // RÃ©cuperation du jour selectionnÃ© par l'utilisateur
             var jourSelecteur = document.getElementById("jour-selecteur");
             var indexJourSelectionne = Number(jourSelecteur.options[jourSelecteur.selectedIndex].value);
 
@@ -46,13 +46,12 @@
             // Appel au quandestcequecest
             var resultat = calculQuandEstCeQueCEst(indexJourSelectionne);
 
-            // Affichage formaté du resultat
+            // Affichage formatÃ© du resultat
             document.getElementById("reponse-paragraphe").innerHTML = contruirePhraseReponse(resultat);
 
         }
 
-        function calculQuandEstCeQueCEst(indexJour) {
-            var maintenant = new Date
+        function calculQuandEstCeQueCEst(indexJour, maintenant = new Date) {
             
             console.debug(`Date du jour : ${maintenant}`);
             
@@ -72,7 +71,7 @@
         }
 
         function contruirePhraseReponse(date) {
-            // Affichage formaté de la date
+            // Affichage formatÃ© de la date
             var options = {
                 weekday: "long",
                 year: "numeric",
@@ -80,17 +79,50 @@
                 day: "numeric"
             };
 
-            return "Il s'agit du " + date.toLocaleDateString('fr-FR', options) + " sans aucun doute possible ! 😌";
+            return "Il s'agit du " + date.toLocaleDateString('fr-FR', options) + " sans aucun doute possible ! ðŸ˜Œ";
 
         }
+        
+        var isTest = function(){
+		    return window.location.href.search("[?&]test") != -1;
+		};
+		
+				
+		if(isTest){
+		 console.log(`Debut des tests`);
+		 var numTest = 1
+		 
+		 // 23/09/2019
+		 assert(numTest++, new Date(2019, 8, 23), calculQuandEstCeQueCEst(1, new Date(2019, 8, 18)))
+		 
+		 // 25/09/2019
+		 assert(numTest++, new Date(2019, 8, 25), calculQuandEstCeQueCEst(3, new Date(2019, 8, 18)))
+		 
+		 // 27/09/2019
+		 assert(numTest++, new Date(2019, 8, 27), calculQuandEstCeQueCEst(5, new Date(2019, 8, 18)))
+		 
+		 console.log(`Fin des tests`);
+		}
+		
+		function assert(numeroTest, dateAttendue, dateTrouvee) {
+			dateTrouvee.setHours(0,0,0,0)
+			dateAttendue.setHours(0,0,0,0)
+		
+		    if (dateAttendue.getTime() === dateTrouvee.getTime()) {
+		      	console.log(`Test ${numeroTest} : âœ” `);
+		    } else {
+		    	console.error(`Test ${numeroTest} : âœ–   (attendue : ${dateAttendue}, trouvÃ©e : ${dateTrouvee}`);
+		    }
+		}
+		
     </script>
 </head>
 
 
 <body>
     <div class="presque-plein-millieu">
-        <p><b>Quand est-ce que c'est «&nbsp;
-            <select id="jour-selecteur" onchange="controleur()">
+        <p><b>Quand est-ce que c'est Â«&nbsp;
+            <select id="jour-selecteur" onchange="onJourChange()">
                 <option hidden disabled selected value/>
                 <option value="1">lundi</option>
                 <option value="2">mardi</option>
@@ -100,7 +132,7 @@
                 <option value="6">samedi</option>
                 <option value="7">dimanche</option>
             </select>
-            &nbsp;prochain&nbsp;» ?</b></p>
+            &nbsp;prochain&nbsp;Â» ?</b></p>
         <p id="reponse-paragraphe" />
     </div>
     <p class="lien-source" >
