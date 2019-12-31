@@ -79,9 +79,18 @@
                 day: "numeric"
             };
 
-            return "Il s'agit du " + date.toLocaleDateString('fr-FR', options) + " sans aucun doute possible ! 😌";
+            return "Il s'agit du " + date.toLocaleDateString('fr-FR', options) + " sans aucun doute possible ! " + getRandomEmoji();
 
         }
+
+        var emojis = [
+	  '😄','😃','😀','😊','😉','😚','😗','😙','😜','😝','😛','😳','😁','😌','😂','😥','😰','😅','😱','😆','😋','😎','😴','😵','😲','😟','😦','😧','😮','😬','😐','😯','😶','😇','😏','😑'
+        ];
+
+        function getRandomEmoji(){
+          return emojis[Math.floor(Math.random() * emojis.length)];
+        };
+
         
         var isTest = function(){
 		    return window.location.href.search("[?&]test") != -1;
