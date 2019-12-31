@@ -37,7 +37,7 @@
     <script>
 
         function onJourChange(){
-            // RÃ©cuperation du jour selectionnÃ© par l'utilisateur
+            // Récuperation du jour selectionnÉ par l'utilisateur
             var jourSelecteur = document.getElementById("jour-selecteur");
             var indexJourSelectionne = Number(jourSelecteur.options[jourSelecteur.selectedIndex].value);
 
@@ -46,7 +46,7 @@
             // Appel au quandestcequecest
             var resultat = calculQuandEstCeQueCEst(indexJourSelectionne);
 
-            // Affichage formatÃ© du resultat
+            // Affichage formaté du résultat
             document.getElementById("reponse-paragraphe").innerHTML = contruirePhraseReponse(resultat);
 
         }
@@ -63,7 +63,7 @@
             
             console.debug(`Date du prochain dimanche : ${prochainDimanche}`);
 
-            // Calcul du resultat en partant du prochain dimanche
+            // Calcul du résultat en partant du prochain dimanche
             var resultat = new Date(prochainDimanche);
             resultat.setDate(resultat.getDate() + indexJour);
 
@@ -71,7 +71,7 @@
         }
 
         function contruirePhraseReponse(date) {
-            // Affichage formatÃ© de la date
+            // Affichage formaté de la date
             var options = {
                 weekday: "long",
                 year: "numeric",
@@ -79,7 +79,7 @@
                 day: "numeric"
             };
 
-            return "Il s'agit du " + date.toLocaleDateString('fr-FR', options) + " sans aucun doute possible ! ðŸ˜Œ";
+            return "Il s'agit du " + date.toLocaleDateString('fr-FR', options) + " sans aucun doute possible ! 😌";
 
         }
         
@@ -89,7 +89,7 @@
 		
 				
 		if(isTest){
-		 console.log(`Debut des tests`);
+		 console.log(`Début des tests`);
 		 var numTest = 1
 		 
 		 // 23/09/2019
@@ -132,7 +132,7 @@
                 <option value="6">samedi</option>
                 <option value="7">dimanche</option>
             </select>
-            &nbsp;prochain&nbsp;» ?</b></p>
+            &nbsp;prochain&nbsp;»&nbsp;?</b></p>
         <p id="reponse-paragraphe" />
     </div>
     <p class="lien-source" >
